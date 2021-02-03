@@ -18,6 +18,11 @@ class OpenraveRobotInterface(object):
       urdf_module = orpy.RaveCreateModule(env, "urdf")
       self.robot_name = urdf_module.SendCommand("LoadURI {} {}".format(
         self.load_urdf,self.load_srdf))
+    if self.load_stl:
+      if not self.env.Load(self.load_stl):
+        raise Exception("STL file does not exist: {}".format(self.load_stl))
+      stl_link = env.GetKinBody(self.stl_body_name).GetLink(self.stl_link_name)
+      stl_link.SetTransform(self.stl_pose)
     if hasattr(self, "robot_name"):
       with self.env:
         self.robot = self.env.GetRobot(self.robot_name)
@@ -33,7 +38,8 @@ class OpenraveRobotInterface(object):
   def get_modifiable_attributes(self):
     # TODO: logger
     return ["viewer", "load_world", "load_urdf", "load_srdf", "manipulator_name",
-            "collision_checker", "check_collision"]
+            "collision_checker", "check_collision",
+            "load_stl", "stl_body_name", "stl_link_name", "stl_pose"]
 
   def get_openrave_robot_handle(self):
     if not hasattr(self, "robot"):

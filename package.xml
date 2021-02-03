@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>rrpy</name>
+  <version>0.1.0</version>
+  <description>Robotics Research Python Package</description>
+  <author email="adr.nicholas@gmail.com">Nicholas Adrian</author>
+  <maintainer email="adr.nicholas@gmail.com">Nicholas Adrian</maintainer>
+  <license>BSD 3-Clause</license>
+  <url type="website">https://github.com/nicholasadr/rrpy</url>
+  <url type="repository">https://github.com/nicholasasdr/rrpy</url>
+  <url type="bugtracker">https://github.com/nicholasadr/rrpy/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>

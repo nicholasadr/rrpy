@@ -66,6 +66,9 @@ class InterfaceManager(object):
 	)
     self.planner = self._orpy.planner
 
+  def get_active_manipulator(self):
+    return self._orpy.get_active_manipulator()
+
   ### ROS interface functionalities ###
 
   def in_simulation(self):

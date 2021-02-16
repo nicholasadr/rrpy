@@ -63,6 +63,14 @@ class OpenraveRobotInterface(object):
     self.dofindices = self.manipulator.GetArmIndices()
     self.robot.SetActiveDOFs(self.dofindices)
 
+  def get_active_manipulator(self):
+    try:
+      self.manipulator
+    except:
+      return Exception("The manipulator attribute is not yet set")
+    else:
+      return self.manipulator
+
   def scale_velocity_limit(self, scale):
     """Scales and sets the velocity limits by the given scale from the absolute max velocity.
     @type  scale: float
